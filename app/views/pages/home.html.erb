@@ -11,12 +11,564 @@
 	<li>Y axis: number of filings (field: edgarSubmission => each edgarSubmission is a "filing") </li>
 	<li><strong>Comment code with good documentation</strong></li>
 </ul>
+<h3> Click below link to view graph data </h3>
+<a href="https://edgarsubmissions.firebaseio.com/.json" id="jsonclick">View Graph Data</a>
 
+<br/>
+<br/>
+
+
+<div id="loading" style="display:none">
+	<%= image_tag("loading.gif")%>
+</div>
 <!-- Insert chart here in div#container -->
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+<div id="container"  style="min-width: 600px; height: 400px; margin: 0 auto">
+</div>
+
+<div id="container1">
 </div>
 
 <!-- Insert script below -->
 <script>	
+	$(function () {
+		// dummy data
+		var hello = {
+			submissions: {
+				JB7VZjsb3deIH2WSzy3: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-10-18"
+								}
+							}
+						}
+					}
+				,
+				JB7VZjsb3deIH2WSzy2: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-10-18"
+								}
+							}
+						}
+					}
+				,
+				JB7VZjsb3deIH2WSzy4: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-23"
+								}
+							}
+						}
+					}
+				,
+				JB7VZjsb3deIH2WSzy13: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-23"
+								}
+							}
+						}
+					}	
+				,
+				JB7VZjsb3deIH2WSzy32: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-23"
+								}
+							}
+						}
+					},
+				JB7VZjsb3deIH2WSzy322: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-23"
+								}
+							}
+						}
+					}
+				,
+			    JB7VZjsb3deIH2WSzy94: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-17"
+								}
+							}
+						}
+					}
+				,
+				JB7VZjsb3deIH2WSzy73: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-13"
+								}
+							}
+						}
+					}	
+				,
+				JB7VZjsb3deIH2WSzy421: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-17"
+								}
+							}
+						}
+					},
+				JB7VZjsb3deIH2WSzy521: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-12-16"
+								}
+							}
+						}
+					}
+				,		
+				JB7VZjsb3deIH2WSzy731: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-10-17"
+								}
+							}
+						}
+					}	
+				,
+				JB7VZjsb3deIH2WSzy323: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-10-17"
+								}
+							}
+						}
+					}
+				,
+				JB7VZjsb3deIH2WSzy44: {
+						edgarSubmission: {
+							sourceLink: "http://www.sec.gov/Archives/edgar/data/1589532/000158953213000001/0001589532-13-000001-index.htm",
+							offeringData: {
+								offeringSalesAmounts: {
+									totalRemaining: "Indefinite",
+									totalAmountSold: "500000",
+									totalOfferingAmount: "Indefinite"
+									},
+								investors: {
+									hasNonAccreditedInvestors: "false",
+									totalNumberAlreadyInvested: "4"
+								},
+								federalExemptionsExclusions: {
+									item: "06c"
+								},
+								minimumInvestmentAccepted: "0",
+								issuerSize: {
+									revenueRange: "No Revenues"
+								},
+								signatureBlock: {
+									signatureDate: "2013-10-15"
+								}
+							}
+						}
+					}
+				}
+			}
+
+		var sigdates = [] ;
+		var seriesArray = []
+
+		$("#jsonclick").click(function(e){
+			e.preventDefault();
+
+			$("#loading").show();
+			
+ 
+
+			// sigdates = [] ;
+			// $.each(hello.submissions, function(index, element) {
+   //  			//alert(element.signatureBlock); 
+   //  			sigdates.push(element.edgarSubmission.offeringData.signatureBlock.signatureDate);
+    			
+   //  			//$.each(element.edgarSubmission.offeringData,function(index,element){
+   //  				//console.log(element)
+   //  			//});
+			// });
+			// var uniqueArray = GetUnique(sigdates);
+			// console.log("Uniquer Array ...." + uniqueArray )
+			// var series = makeSeriesArray(uniqueArray);
+			// var chart = callHighchars(uniqueArray,sigdates,series);
+
+
+
+
+			$.ajax({
+		        url: 'https://edgarsubmissions.firebaseio.com/.json',
+		        dataType: 'jsonp',
+		        success: function(json) {
+		        	$("#loading").hide();
+		        	sigdates = [] ;
+		        	$.each(json.submissions, function(index, element) {
+    					if (element.edgarSubmission.offeringData){
+	    					var dat = element.edgarSubmission.offeringData.signatureBlock.signatureDate
+	    					sigdates.push(dat)
+    					}
+    					
+					});
+		        	//console.log(sigdates)
+					//callHighchars(sigdates)
+					var uniqueArray = GetUnique(sigdates);
+					//console.log("Uniquer Array ...." + uniqueArray )
+					var series = makeSeriesArray(uniqueArray);
+					var chart = callHighchars(uniqueArray,sigdates,series);
+		        }
+	    	});
+
+
+		});//end of click function
+	    
+
+
+
+		function makeSeriesArray(uniqueArray) {
+
+			$.each(uniqueArray,function(index,ele){
+				var res = count(sigdates,ele)
+				var p = {} ;
+				p['name'] = ele ;
+				p['data'] = [];
+				p['data'][index] = res;
+				for ( var i = 0, l = uniqueArray.length; i < l-1 ; i++ ) {
+    				//sum += arr[ i ];
+    				if (index != i) { 
+    					p['data'][i] = 0
+    				}
+				}
+				//seriesArray.push({'name': ele , 'data': res})
+				seriesArray.push(p)
+				//console.log(ele + "no fo times ..."+ res )
+
+				});
+			return seriesArray;
+			}
+
+
+
+
+
+
+		function GetUnique(inputArray)
+			{
+			    var outputArray = [];
+			    
+			    for (var i = 0; i < inputArray.length; i++)
+			    {
+			        if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
+			        {
+			            outputArray.push(inputArray[i]);
+			        }
+			    }
+			   
+			    return outputArray;
+			}
+
+
+		function count(array, value) {
+		  	var counter = 0;
+		  	for(var i=0;i<array.length;i++) {
+		    	if (array[i] === value) counter++;
+		  	}
+		  	return counter;
+		}
+
+
+
+	
+
+		function callHighchars(uarray,oriarry,seriesarray) {
+			//console.log(JSON.stringify(seriesarray));
+			//console.log(typeof(uarray))
+			//$('#container').highcharts({
+			var chart = new Highcharts.Chart({
+		            chart: {
+		                type: 'column',
+		                renderTo: 'container'
+		            },
+		            title: {
+		                text: 'Test Graph'
+		            },
+		            subtitle: {
+		                text: 'Test Graph'
+		            },
+		            xAxis: {
+		            	min: 170,
+		                categories: uarray
+		            },
+		            yAxis: {
+		                min: 0,
+		                title: {
+		                    text: 'number of filings'
+		                }
+		            },
+		            scrollbar: {
+        				enabled: true
+    				},
+		            tooltip: {
+		                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+		                footerFormat: '</table>',
+		                shared: true,
+		                useHTML: true
+		            },
+		            plotOptions: {
+		                column: {
+		                    pointPadding: 0.2,
+		                    borderWidth: 0
+		                }
+		            },
+		            series:  seriesarray
+		        });
+
+			return chart;
+
+		 }
+
+
+
+
+
+		 // 	var chart = new Highcharts.Chart({
+	    
+			//     chart: {
+			//     	type: 'column',
+			//         renderTo: 'container1'
+			//     },
+	    
+		 //        scrollbar: {
+		 //            enabled: true
+		 //        },
+        
+		 //        navigator: {
+		 //            enabled: true,
+		 //            series: {
+		 //                id: 'navigator'
+		 //            }
+		 //        },
+                
+   //      		series: []
+			// });
+
+		});
 </script>
 
