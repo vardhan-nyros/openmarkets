@@ -383,7 +383,7 @@
 		// 				}
 		// 			}
 		// 		}
-		//}
+		// 	}
 
 		var sigdates = [] ;
 		var seriesArray = []
@@ -406,7 +406,9 @@
 			// });
 			// var uniqueArray = GetUnique(sigdates);
 			// console.log("Uniquer Array ...." + uniqueArray )
-			// var series = makeSeriesArray(uniqueArray);
+			// //console.log(uniqueArray.sort())
+			// var series = makeSeriesArray(uniqueArray.sort());
+			// console.log("Series Array ...." + series )
 			// var chart = callHighchars(uniqueArray,sigdates,series);
 
 
@@ -429,7 +431,8 @@
 					//callHighchars(sigdates)
 					var uniqueArray = GetUnique(sigdates);
 					//console.log("Uniquer Array ...." + uniqueArray )
-					var series = makeSeriesArray(uniqueArray);
+
+					var series = makeSeriesArray(uniqueArray.sort());
 					var chart = callHighchars(uniqueArray,sigdates,series);
 		        }
 	    	});
@@ -511,7 +514,7 @@
 		                text: 'Test Graph'
 		            },
 		            xAxis: {
-		            	min: 170,
+		            	min: 198,
 		                categories: uarray
 		            },
 		            yAxis: {
